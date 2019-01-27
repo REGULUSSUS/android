@@ -900,4 +900,7 @@
     <string name="copied_to_clipboard">Copied to clipboard</string>
     <string name="download_latest_dev_version">Download latest dev version</string>
     <string name="changelog_dev_version">Changelog dev version</string>
+    <string name="autoupload_blacklist_pattern">Edit Exclude Patterns</string>
+    <string name="blacklist_editor_exclude_pattern_title">Exclude Pattern</string>
+    <string name="blacklist_editor_exclude_pattern_subtitle">* as wildcard may be used</string>
 </resources>
