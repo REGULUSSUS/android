@@ -230,7 +230,7 @@ public class MainApp extends MultiDexApplication implements HasAndroidInjector {
     @SuppressFBWarnings("ST")
     @Override
     public void onCreate() {
-        setAppTheme(preferences.getTheme());
+        setAppTheme(preferences.isDarkThemeEnabled());
         super.onCreate();
 
         insertConscrypt();
