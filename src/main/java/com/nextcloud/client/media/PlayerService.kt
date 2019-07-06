@@ -1,0 +1,133 @@
+/**
+ * Nextcloud Android client application
+ *
+ * @author Chris Narkiewicz
+ * Copyright (C) 2019 Chris Narkiewicz <hello@ezaquarii.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+package com.nextcloud.client.media
+
+import android.accounts.Account
+import android.app.PendingIntent
+import android.app.Service
+import android.content.Intent
+import android.media.AudioManager
+import android.os.IBinder
+import android.widget.MediaController
+import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import com.owncloud.android.R
+import com.owncloud.android.datamodel.OCFile
+import com.owncloud.android.ui.notifications.NotificationUtils
+import com.owncloud.android.utils.ThemeUtils
+import dagger.android.AndroidInjection
+import javax.inject.Inject
+
+class PlayerService : Service() {
+
+    companion object {
+        const val EXTRA_ACCOUNT = "ACCOUNT"
+        const val EXTRA_FILE = "FILE"
+        const val EXTRA_AUTO_PLAY = "EXTRA_AUTO_PLAY"
+        const val EXTRA_START_POSITION_MS = "START_POSITION_MS"
+
+        const val ACTION_PLAY = "PLAY"
+        const val ACTION_STOP = "STOP"
+    }
+
+    class Binder(val service: PlayerService) : android.os.Binder() {
+
+        /**
+         * This property returns current instance of media player interface.
+         * It is not cached and it is suitable for polling.
+         */
+        val player: MediaController.MediaPlayerControl get() = service.player
+    }
+
+    private val playerListener = object : Player.Listener {
+
+        override fun onStart() {
+            // nothing
+        }
+
+        override fun onStop() {
+            stopForeground(true)
+        }
+
+        override fun onError(error: Player.Error) {
+            Toast.makeText(this@PlayerService, error.message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    @Inject
+    protected lateinit var audioManager: AudioManager
+
+    private lateinit var player: Player
+    private lateinit var notificationBuilder: NotificationCompat.Builder
+
+    override fun onCreate() {
+        super.onCreate()
+        AndroidInjection.inject(this)
+        player = Player(applicationContext, playerListener, audioManager)
+        notificationBuilder = NotificationCompat.Builder(this)
+        notificationBuilder.color = ThemeUtils.primaryColor(this)
+    }
+
+    override fun onBind(intent: Intent?): IBinder? {
+        return Binder(this)
+    }
+
+    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+        when (intent.action) {
+            ACTION_PLAY -> onActionPlay(intent)
+            ACTION_STOP -> onActionStop()
+        }
+        return START_NOT_STICKY
+    }
+
+    private fun onActionPlay(intent: Intent) {
+        val account: Account = intent.getParcelableExtra(EXTRA_ACCOUNT)
+        val file: OCFile = intent.getParcelableExtra(EXTRA_FILE)
+        val startPos = intent.getIntExtra(EXTRA_START_POSITION_MS, 0)
+        val autoPlay = intent.getBooleanExtra(EXTRA_AUTO_PLAY, true)
+        player.play(file = file, startPositionMs = startPos, autoPlay = autoPlay, account = account)
+        startForeground(account, file)
+    }
+
+    private fun onActionStop() {
+        player.stop()
+    }
+
+    private fun startForeground(account: Account, currentFile: OCFile) {
+        val ticker = String.format(getString(R.string.media_notif_ticker), getString(R.string.app_name))
+        val content = getString(R.string.media_state_playing, currentFile.getFileName())
+        notificationBuilder.setSmallIcon(R.drawable.ic_play_arrow)
+        notificationBuilder.setWhen(System.currentTimeMillis())
+        notificationBuilder.setOngoing(true)
+        notificationBuilder.setContentTitle(ticker)
+        notificationBuilder.setContentText(content)
+
+        val stop = Intent(this, PlayerService::class.java)
+        stop.action = ACTION_STOP
+        val pendingStop = PendingIntent.getService(this, 0, stop, 0)
+        notificationBuilder.addAction(0, "STOP", pendingStop)
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            notificationBuilder.setChannelId(NotificationUtils.NOTIFICATION_CHANNEL_MEDIA)
+        }
+
+        startForeground(R.string.media_notif_ticker, notificationBuilder.build())
+    }
+}

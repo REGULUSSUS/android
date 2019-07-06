@@ -164,6 +164,7 @@ public class MediaControlView extends FrameLayout implements OnClickListener, On
         public void handleMessage(Message msg) {
             int pos;
             if (msg.what == SHOW_PROGRESS) {
+                updatePausePlay();
                 pos = setProgress();
                 if (!mDragging) {
                     msg = obtainMessage(SHOW_PROGRESS);
@@ -173,7 +174,7 @@ public class MediaControlView extends FrameLayout implements OnClickListener, On
         }
     };
 
-    private String stringForTime(int timeMs) {
+    private String formatTime(int timeMs) {
         int totalSeconds = timeMs / 1000;
 
         int seconds = totalSeconds % 60;
@@ -206,10 +207,11 @@ public class MediaControlView extends FrameLayout implements OnClickListener, On
         }
 
         if (mEndTime != null) {
-            mEndTime.setText(stringForTime(duration));
+            String endTime = duration > 0 ? formatTime(duration) : "--:--";
+            mEndTime.setText(endTime);
         }
         if (mCurrentTime != null) {
-            mCurrentTime.setText(stringForTime(position));
+            mCurrentTime.setText(formatTime(position));
         }
         return position;
     }
@@ -259,6 +261,21 @@ public class MediaControlView extends FrameLayout implements OnClickListener, On
         } else {
             mPauseButton.setImageResource(android.R.drawable.ic_media_play);
         }
+
+        final boolean canSeekFfd = mPlayer.canSeekForward();
+        if (canSeekFfd) {
+            mFfwdButton.setVisibility(View.VISIBLE);
+        } else {
+            mFfwdButton.setVisibility(View.INVISIBLE);
+        }
+
+        final boolean canSeekBwd = mPlayer.canSeekBackward();
+        if (canSeekBwd) {
+            mRewButton.setVisibility(View.VISIBLE);
+        } else {
+            mRewButton.setVisibility(View.INVISIBLE);
+        }
+
     }
 
     private void doPauseResume() {
@@ -333,7 +350,7 @@ public class MediaControlView extends FrameLayout implements OnClickListener, On
         long newPosition = (duration * progress) / 1000L;
         mPlayer.seekTo((int) newPosition);
         if (mCurrentTime != null) {
-            mCurrentTime.setText(stringForTime((int) newPosition));
+            mCurrentTime.setText(formatTime((int) newPosition));
         }
     }
 

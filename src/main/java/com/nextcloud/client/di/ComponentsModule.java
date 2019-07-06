@@ -22,6 +22,7 @@ package com.nextcloud.client.di;
 
 import com.nextcloud.client.errorhandling.ShowErrorActivity;
 import com.nextcloud.client.etm.EtmActivity;
+import com.nextcloud.client.media.PlayerService;
 import com.nextcloud.client.onboarding.FirstRunActivity;
 import com.nextcloud.client.onboarding.WhatsNewActivity;
 import com.owncloud.android.authentication.AuthenticatorActivity;
@@ -150,4 +151,5 @@ abstract class ComponentsModule {
 
     @ContributesAndroidInjector abstract AccountManagerService accountManagerService();
     @ContributesAndroidInjector abstract OperationsService operationsService();
+    @ContributesAndroidInjector abstract PlayerService playerService();
 }
