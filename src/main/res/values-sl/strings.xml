@@ -314,8 +314,6 @@
     <string name="media_err_invalid_progressive_playback">Predstavne datoteke ni mogoče prikazati v pretoku</string>
     <string name="media_err_io">Predstavne datoteke ni mogoče prebrati.</string>
     <string name="media_err_malformed">Predstavna datoteka ni pravilno kodirana.</string>
-    <string name="media_err_not_in_owncloud">Dokument ni shranjen v veljavnem računu.</string>
-    <string name="media_err_nothing_to_play">Predstavnih datotek ni mogoče najti</string>
     <string name="media_err_timeout">Poskus predvajanja je časovno potekel</string>
     <string name="media_err_unsupported">Nepodprt predstavni kodek</string>
     <string name="media_forward_description">Gumb za hitro predvajanje naprej</string>
