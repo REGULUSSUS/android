@@ -35,6 +35,7 @@ import com.evernote.android.job.util.Device;
 import com.google.gson.reflect.TypeToken;
 import com.nextcloud.client.device.PowerManagementService;
 import com.nextcloud.client.network.ConnectivityService;
+import com.nextcloud.client.preferences.AppPreferencesImpl;
 import com.owncloud.android.datamodel.ArbitraryDataProvider;
 import com.owncloud.android.datamodel.DecryptedFolderMetadata;
 import com.owncloud.android.datamodel.EncryptedFolderMetadata;
@@ -63,7 +64,6 @@ import com.owncloud.android.lib.resources.files.ReadFileRemoteOperation;
 import com.owncloud.android.lib.resources.files.UploadFileRemoteOperation;
 import com.owncloud.android.lib.resources.files.model.RemoteFile;
 import com.owncloud.android.operations.common.SyncOperation;
-import com.owncloud.android.utils.ConnectivityUtils;
 import com.owncloud.android.utils.EncryptionUtils;
 import com.owncloud.android.utils.FileStorageUtils;
 import com.owncloud.android.utils.MimeType;
@@ -777,7 +777,7 @@ public class UploadFileOperation extends SyncOperation {
     private boolean isBlacklistedFile(String fileName) {
 
         SharedPreferences sharedpreferences = android.preference.PreferenceManager.getDefaultSharedPreferences(this.getContext());
-        List<String> list = new ArrayList<>(sharedpreferences.getStringSet(PreferenceManager.EXCLUDED_AUTOUPLOAD_PATTEN_KEY, PreferenceManager.EXCLUDED_AUTOUPLOAD_PATTEN_DEFAULT_VALUES));
+        List<String> list = new ArrayList<>(sharedpreferences.getStringSet(AppPreferencesImpl.EXCLUDED_AUTOUPLOAD_PATTEN_KEY, AppPreferencesImpl.EXCLUDED_AUTOUPLOAD_PATTEN_DEFAULT_VALUES));
 
         boolean isBlacklisted = false;
         for (String pattern : list) {
