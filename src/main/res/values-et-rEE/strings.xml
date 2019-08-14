@@ -201,13 +201,11 @@
     <string name="manage_space_clear_data">Tühjenda andmed</string>
     <string name="manage_space_title">Ruumi haldamine</string>
     <string name="media_err_io">Meediafaili lugemine ebaõnnestus</string>
-    <string name="media_err_nothing_to_play">Meedia faili ei leitud</string>
     <string name="media_err_unsupported">Mittetoetatud meedia koodek</string>
     <string name="media_forward_description">Kiire kerimise nupp</string>
     <string name="media_notif_ticker">%1$s muusika pleier</string>
     <string name="media_play_pause_description">Mängimise või pausi nupp</string>
     <string name="media_rewind_description">Tagasikerimise nupp</string>
-    <string name="media_state_loading">%1$s (laeb)</string>
     <string name="media_state_playing">%1$s (mängib)</string>
     <string name="menu_item_sort_by_date_newest_first">Uuemad esimesena</string>
     <string name="menu_item_sort_by_date_oldest_first">Vanemad esimesena</string>

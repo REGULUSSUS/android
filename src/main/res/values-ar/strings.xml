@@ -193,12 +193,10 @@
     <string name="maintenance_mode">الخادوم في وضع الصيانة</string>
     <string name="manage_space_title">إدارة المساحة</string>
     <string name="media_err_invalid_progressive_playback">ملف الوسائط ﻻ يمكن عرضه</string>
-    <string name="media_err_nothing_to_play">لا يوجد ملف وسائط</string>
     <string name="media_err_unsupported">ترميز غير مدعّم</string>
     <string name="media_forward_description">زر التقدم للأمام</string>
     <string name="media_play_pause_description">زر التشغيل أو الإيقاف</string>
     <string name="media_rewind_description">زر الترجيع</string>
-    <string name="media_state_loading">(جارٍ تحميل) %1$s</string>
     <string name="menu_item_sort_by_date_newest_first">الأحدث أولا</string>
     <string name="menu_item_sort_by_date_oldest_first">الأقدم أولا</string>
     <string name="menu_item_sort_by_name_a_z">أ - ى</string>

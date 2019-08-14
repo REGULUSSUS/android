@@ -283,17 +283,13 @@
     <string name="media_err_invalid_progressive_playback">Berkas media tidak bisa di streaming</string>
     <string name="media_err_io">Tidak dapat membaca berkas media</string>
     <string name="media_err_malformed">Berkas media tidak di encoding dengan benar</string>
-    <string name="media_err_not_in_owncloud">Berkas tidak didalam akun yang sah</string>
-    <string name="media_err_nothing_to_play">Tidak ditemukan berkas media</string>
     <string name="media_err_timeout">Waktu habis saat mencoba untuk main</string>
     <string name="media_err_unknown">Berkas media tidak dapat diputar dengan pemutar media yang ada</string>
     <string name="media_err_unsupported">Kodek media tidak didukung</string>
-    <string name="media_event_done">%1$s pemutaran selesai</string>
     <string name="media_forward_description">Tombol maju</string>
     <string name="media_notif_ticker">Pemutar musik %1$s</string>
     <string name="media_play_pause_description">Tombol main dan jeda</string>
     <string name="media_rewind_description">Tombol mundur</string>
-    <string name="media_state_loading">%1$s (sedang dimuat)</string>
     <string name="media_state_playing">%1$s (dimainkan)</string>
     <string name="menu_item_sort_by_date_newest_first">Terbaru</string>
     <string name="menu_item_sort_by_date_oldest_first">Paling lama</string>

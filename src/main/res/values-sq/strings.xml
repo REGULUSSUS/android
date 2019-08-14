@@ -341,19 +341,13 @@
     <string name="media_err_invalid_progressive_playback">Skedari media s’mund të transmetohet</string>
     <string name="media_err_io">S\'u lexua dot skedari media</string>
     <string name="media_err_malformed">Skedar media i koduar jo si duhet</string>
-    <string name="media_err_not_in_owncloud">Skedar jo në llogari të vlefshme</string>
-    <string name="media_err_nothing_to_play">S’u gjetën skedar media</string>
-    <string name="media_err_playing">Gabim i papritur gjatë përpjekjes për të luajtur %1$s
-</string>
     <string name="media_err_timeout">Mbaroi koha, teksa përpiqej të luhej</string>
     <string name="media_err_unknown">Ndërtuesi i integruar i medias nuk mund të luajë skedarin medial</string>
     <string name="media_err_unsupported">Kodek mediash i pambuluar</string>
-    <string name="media_event_done">Luajtja e %1$s përfundoi</string>
     <string name="media_forward_description">Butoni Përpara</string>
     <string name="media_notif_ticker">Lojtësi %1$s i muzikës</string>
     <string name="media_play_pause_description">Butoni Luaje ose Pushoje</string>
     <string name="media_rewind_description">Butoni Mbrapsht</string>
-    <string name="media_state_loading">%1$s (po ngarkohet)</string>
     <string name="media_state_playing">%1$s (po luhet)</string>
     <string name="menu_item_sort_by_date_newest_first">Më i riu në fillim</string>
     <string name="menu_item_sort_by_date_oldest_first">Më i vjetri në fillim</string>

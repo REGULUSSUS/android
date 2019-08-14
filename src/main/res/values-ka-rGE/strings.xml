@@ -246,17 +246,13 @@
     <string name="media_err_invalid_progressive_playback">მედია ფაილის სტრიმი ვერ ხორციელდება</string>
     <string name="media_err_io">მედია ფაილის წაკითხვა ვერ მოხერხდა</string>
     <string name="media_err_malformed">მედია ფაილს გააჩნია არასწორი კოდირება</string>
-    <string name="media_err_not_in_owncloud">ეს ფაილი არ ეკუთვნის დაშვებულ ანგარიშს</string>
-    <string name="media_err_nothing_to_play">მედია ფაილი ვერ იქნა ნაპოვნი</string>
     <string name="media_err_timeout">ფაილის დაკვრის მცდელობის დრო ამოიწურა</string>
     <string name="media_err_unknown">ჩაშენებული მედია დამკვრელი ვერ უკრავს მედია ფაილს</string>
     <string name="media_err_unsupported">მედია კოდეკი მხარდაუჭერელია</string>
-    <string name="media_event_done">%1$s დაკვრა დასრულდა</string>
     <string name="media_forward_description">სწრაფი გადახვევის ღილაკი</string>
     <string name="media_notif_ticker">%1$s მუსიკის დამკვრელი</string>
     <string name="media_play_pause_description">დაკვრის ან პაუზის ღილაკი</string>
     <string name="media_rewind_description">გადახვევის ღილაკი</string>
-    <string name="media_state_loading">%1$s (იტვირთება)</string>
     <string name="media_state_playing">%1$s (იკვრება)</string>
     <string name="menu_item_sort_by_date_newest_first">ჯერ ახალი</string>
     <string name="menu_item_sort_by_date_oldest_first">ჯერ ძველი</string>

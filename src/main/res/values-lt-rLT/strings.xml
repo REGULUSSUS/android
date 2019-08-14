@@ -304,18 +304,13 @@
     <string name="media_err_io">Nepavyko perskaityti medijos failo.
 </string>
     <string name="media_err_malformed">Media failas yra nepalaikomos koduotės.</string>
-    <string name="media_err_not_in_owncloud">Failas nėra galiojančioje paskyroje (profilyje)</string>
-    <string name="media_err_nothing_to_play">Nerasta medija failų</string>
-    <string name="media_err_playing">Netikėta klaida bandant atkurti %1$s</string>
     <string name="media_err_timeout">Baigėsi laukimo laikas bandant paleisti</string>
     <string name="media_err_unknown">Įtaisytąjai medijos leistuvei nepavyko atkurti medijos failo</string>
     <string name="media_err_unsupported">Nepalaikomas kodekas</string>
-    <string name="media_event_done">%1$s atkūrimas užbaigtas</string>
     <string name="media_forward_description">Prasukimo mygtukas</string>
     <string name="media_notif_ticker">%1$s muzikos grotuvas</string>
     <string name="media_play_pause_description">Grojimo arba pauzės mygtukas</string>
     <string name="media_rewind_description">Atsukimo mygtukas</string>
-    <string name="media_state_loading">%1$s (įkeliama)</string>
     <string name="media_state_playing">%1$s (atkuriama)</string>
     <string name="menu_item_sort_by_date_newest_first">Naujausi pirma</string>
     <string name="menu_item_sort_by_date_oldest_first">Seniausi pirma</string>
